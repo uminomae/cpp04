@@ -1,7 +1,6 @@
-#ifndef TEST_HPP
-#define TEST_HPP
+#ifndef CPP_HPP
+#define CPP_HPP
 
-// #include <iostream>
 #include <string>
 
 void myPutStr(std::string s1, std::string s2, std::string color);

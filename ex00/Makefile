@@ -12,7 +12,9 @@ DFLAGS		:= -MMD -MP
 SRCDIR		= srcs
 SRCS		:= 	\
 srcs/main.cpp \
-srcs/Animal.cpp
+srcs/Animal.cpp \
+srcs/Dog.cpp \
+srcs/Cat.cpp \
 
 
 # find srcs -type  f -name '*.c'
