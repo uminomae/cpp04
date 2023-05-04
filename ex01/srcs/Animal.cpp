@@ -2,23 +2,23 @@
 
 Animal::Animal()
 :type("Animal"){
-	myPutStr(myGetClassName(), " : Default constructor called", PINK170);
+	myPutStr(myGetClassName(), " : Default constructor called", PINK183);
 }
 
 Animal::Animal(const Animal& obj){
-	myPutStr(myGetClassName(), " : Copy constructor called", PINK170);
+	myPutStr(myGetClassName(), " : Copy constructor called", PINK183);
 	*this = obj;
 }
 
 Animal& Animal::operator =(const Animal& rhs){
-	myPutStr(myGetClassName(), " : Copy assignment operator called", PINK170);
+	myPutStr(myGetClassName(), " : Copy assignment operator called", PINK183);
 	if (this != &rhs)
 		type = rhs.type;
 	return *this;
 }
 
 Animal::~Animal(){
-	myPutStr(myGetClassName(), " : Destructor called", PINK170);
+	myPutStr(myGetClassName(), " : Destructor called", PINK183);
 }
 
 std::string Animal::myGetClassName(){
@@ -36,3 +36,11 @@ void Animal::makeSound()const{
 std::string Animal::getType()const{
 	return type;
 }
+
+// std::string Dog::getBrain(i)const{
+// 	return brain[i];
+// }
+
+// void Dog::setBrain(std::string s)const{
+// 	brain[i] = s
+// }

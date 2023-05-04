@@ -15,7 +15,7 @@ srcs/main.cpp \
 srcs/Animal.cpp \
 srcs/Dog.cpp \
 srcs/Cat.cpp \
-
+srcs/Brain.cpp \
 
 # find srcs -type  f -name '*.c'
 #=============================

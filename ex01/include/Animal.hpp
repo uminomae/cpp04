@@ -12,11 +12,12 @@ public:
 	Animal();
 	Animal(const Animal& obj);
 	Animal& operator =(const Animal& rhs);
-	~Animal();
+	virtual ~Animal();
 	
 	virtual void makeSound()const;
 	std::string myGetClassName();
 	virtual std::string getType()const;
 };
+
 
 #endif

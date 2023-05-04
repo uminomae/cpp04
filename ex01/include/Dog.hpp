@@ -1,13 +1,13 @@
 #ifndef DOG_HPP
 #define DOG_HPP
 
-// #include <string>
 #include "Animal.hpp"
-// #include "Test.hpp"
+#include "Brain.hpp"
 
 class Dog: public Animal{
 protected:
 	std::string type;
+	Brain* brain;
 public:
 	Dog();
 	Dog(const Dog& obj);
@@ -15,9 +15,9 @@ public:
 	~Dog();
 	
 	void makeSound()const;
-	std::string myGetClassName();
-
 	std::string getType()const;
+	void setType(std::string s);
+	std::string myGetClassName();
 };
 
 #endif
