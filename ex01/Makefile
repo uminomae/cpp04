@@ -15,8 +15,6 @@ srcs/main.cpp \
 srcs/Animal.cpp \
 srcs/Dog.cpp \
 srcs/Cat.cpp \
-srcs/WrongAnimal.cpp \
-srcs/WrongCat.cpp \
 
 
 # find srcs -type  f -name '*.c'

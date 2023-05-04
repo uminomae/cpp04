@@ -1,49 +1,8 @@
-// #include "Animal.hpp"
 #include "Dog.hpp"
 #include "Cat.hpp"
-// #include "CPP.hpp"
+#include "WrongCat.hpp"
 
-
-// #define MY_TEST1
-
-void test1(){
-	{
-		myPutStr("=========", "===========", PINK198);
-		myPutStr("MY_TEST1 ", "", PINK198);
-		myPutStr("=========", "===========", PINK198);
-
-		myPutStr("=========", "===========", PINK201);
-		myPutStr("MY_TEST1 ", "", PINK201);
-		myPutStr("=========", "===========", PINK201);
-
-		myPutStr("=== ", "Animal a;", PINK136);
-		Animal a;
-		myPutStr("=== ", "Animal b(a);;", PINK136);
-		Animal b(a);
-		myPutStr("=== ", "Animal c;", PINK136);
-		Animal c;
-		myPutStr("=== ", "c = b;", PINK136);
-		c = b;
-
-
-		myPutStr("=== ", "c.makeSound();", PINK136);
-		c.makeSound();
-
-		myPutStr("=== ", "Animal Dog;", PINK136);
-		Dog dog;
-		dog.makeSound();
-		myPutStr("=== ", "dog.getType()", PINK136);
-		std::cout << dog.getType() << " " << std::endl;
-
-		myPutStr("=== ", "Animal cat;", PINK136);
-		Cat cat;
-		cat.makeSound();
-		myPutStr("=== ", "cat.getType()", PINK136);
-		std::cout << cat.getType() << " " << std::endl;
-		
-		myPutStr("=== ", "end scope", PINK136);
-	}
-}
+#define TEST1
 
 int main(){
 
@@ -56,13 +15,58 @@ int main(){
 		i->makeSound(); //will output the cat sound!
 		j->makeSound();
 		meta->makeSound();
+
+		const WrongAnimal* WrongMeta = new WrongAnimal();
+		const WrongCat* k = new WrongCat();
+		k->makeSound();
+		WrongMeta->makeSound();
 	}
-
+#ifdef TEST1
 	test1();
-
+#endif
 
 	return 0;
 }
+
+
+void test1(){
+	{
+		myPutStr("=========", "===========", PINK198);
+		myPutStr("MY_TEST1 ", "", PINK198);
+		myPutStr("=========", "===========", PINK198);
+
+		myPutStr("=========", "===========", PINK201);
+		myPutStr("MY_TEST1 case : subject ", "", PINK201);
+		myPutStr("=========", "===========", PINK201);
+
+		myPutStr("=== ", "const Animal* meta = new Animal();", PINK136);
+		const Animal* meta = new Animal();
+		myPutStr("=== ", "const Animal* j = new Dog();", PINK136);
+		const Animal* j = new Dog();
+		myPutStr("=== ", "const Animal* i = new Cat();", PINK136);
+		const Animal* i = new Cat();
+		myPutStr("=== ", "std::cout << j->getType() << " " << std::endl;", PINK136);
+		std::cout << j->getType() << " " << std::endl;
+		myPutStr("=== ", "std::cout << i->getType() << " " << std::endl;", PINK136);
+		std::cout << i->getType() << " " << std::endl;
+		myPutStr("=== ", "i->makeSound();", PINK136);
+		i->makeSound(); //will output the cat sound!
+		myPutStr("=== ", "j->makeSound();", PINK136);
+		j->makeSound();
+		myPutStr("=== ", "meta->makeSound();", PINK136);
+		meta->makeSound();
+
+		myPutStr("=== ", "const WrongAnimal* WrongMeta = new WrongAnimal();", PINK136);
+		const WrongAnimal* WrongMeta = new WrongAnimal();
+		myPutStr("=== ", "const WrongCat* k = new WrongCat();", PINK136);
+		const WrongCat* k = new WrongCat();
+		myPutStr("=== ", "k->makeSound();", PINK136);
+		k->makeSound();
+		myPutStr("=== ", "WrongMeta->makeSound();", PINK136);
+		WrongMeta->makeSound();
+	}
+}
+
 
 void myPutStr(std::string s1, std::string s2, std::string color){
 	std::cout << color << s1 << s2 << RESET_COLOR << std::endl;

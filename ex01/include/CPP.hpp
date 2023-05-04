@@ -4,7 +4,6 @@
 #include <string>
 
 void myPutStr(std::string s1, std::string s2, std::string color);
-void test1();
 
 const std::string PINK170 = "\033[38;5;170m";
 const std::string PINK183 = "\033[38;5;183m";
