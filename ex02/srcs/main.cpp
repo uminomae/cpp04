@@ -80,6 +80,14 @@ int main(){
 		myPutStr("===","cat2.getType()" ,PINK136);
 		myPutStr("", cat2.getType() ,PINK198);
 
+// #define TEST_AB
+#ifdef TEST_AB
+		myPutStr("=========", "===========", PINK201);
+		myPutStr("MY_TEST1 ", "Abstract", PINK201);
+		myPutStr("=========", "===========", PINK201);
+		myPutStr("===","const Animal* AA = new Animal();" ,PINK136);
+		Animal AA;
+#endif
 		myPutStr("=== ", "end scope", PINK136);
 	}
 
