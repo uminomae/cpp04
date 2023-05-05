@@ -25,20 +25,7 @@ Dog::~Dog(){
 	myPutStr(myGetClassName(), " : Destructor called", PINK198);
 }
 
-std::string Dog::myGetClassName(){
-	std::string ret = typeid(*this).name();
-	ret = ret.substr(1, ret.size()-1);
-	return ret;
-}
 
 void Dog::makeSound()const{
 	myPutStr("Dog::", "Bow", PINK198);
-}
-
-std::string Dog::getType()const{
-	return type;
-}
-
-void Dog::setType(std::string s){
-	type = s;
 }

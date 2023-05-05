@@ -21,26 +21,21 @@ Animal::~Animal(){
 	myPutStr(myGetClassName(), " : Destructor called", PINK183);
 }
 
+
+void Animal::makeSound()const{
+	myPutStr("Animal::", "howl", PINK198);
+}
+
 std::string Animal::myGetClassName(){
 	std::string ret = typeid(*this).name();
 	ret = ret.substr(1, ret.size()-1);
 	return ret;
 }
 
-
-	
-void Animal::makeSound()const{
-	myPutStr("Animal::", "howl", PINK198);
-}
-
 std::string Animal::getType()const{
 	return type;
 }
 
-// std::string Dog::getBrain(i)const{
-// 	return brain[i];
-// }
-
-// void Dog::setBrain(std::string s)const{
-// 	brain[i] = s
-// }
+void Animal::setType(std::string s){
+	type = s;
+}

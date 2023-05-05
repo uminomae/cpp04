@@ -5,9 +5,10 @@ int main(){
 
 	{
 		myPutStr("=========", "===========", PINK198);
-		myPutStr("MY_TEST1 ", "subject", PINK198);
+		myPutStr("MY_TEST_EX02 ", "subject", PINK198);
 		myPutStr("=========", "===========", PINK198);
 
+		// const Animal* k = new Animal();
 		const Animal* j = new Dog();
 		const Animal* i = new Cat();
 		delete j;//should not create a leak
@@ -15,19 +16,30 @@ int main(){
 	}
 	{
 		myPutStr("=========", "===========", PINK201);
-		myPutStr("MY_TEST1 ", "array", PINK201);
+		myPutStr("MY_TEST_EX02 ", "Brain ", PINK201);
 		myPutStr("=========", "===========", PINK201);
-		int n = 10;
+
+		myPutStr("=== ", "Brain* brain = new Brain();", PINK190);
+		Brain* brain = new Brain();
+		myPutStr("=== ", "delete brain;", PINK190);
+		delete brain;
+
+		myPutStr("=========", "===========", PINK201);
+		myPutStr("MY_TEST_EX02 ", "array", PINK201);
+		myPutStr("=========", "===========", PINK201);
+		int n = 4;
 		Animal* array[n];
 		myPutStr("=== ", "while {array[i] = new Dog();", PINK136);
 		int i=0;
 		while (i < n/2){
 			array[i] = new Dog();
+			myPutStr("=== ", "", PINK136);
 			i++;
 		}
 		myPutStr("=== ", "while {array[i] = new Cat();", PINK136);
 		while (i < n){
 			array[i] = new Cat();
+			myPutStr("=== ", "", PINK136);
 			i++;
 		}
 
@@ -37,53 +49,63 @@ int main(){
 			if (i == n/2)
 				myPutStr("=== ", "i == n/2;", PINK136);
 			delete array[i];
+			myPutStr("=== ", "", PINK136);
 			i++;
 		}
 
 		myPutStr("=========", "===========", PINK201);
-		myPutStr("MY_TEST1 ", "deep cpy", PINK201);
+		myPutStr("MY_TEST_EX02 ", "deep cpy", PINK201);
 		myPutStr("=========", "===========", PINK201);
-		// コピーがディープ コピーであることをテストする必要があります。
-		myPutStr("===","dog copy test" ,PINK136);
-		myPutStr("===","Dog dog;" ,PINK136);
+		// myPutStr("==="," Dog dog;" ,PINK136);
 		Dog dog;
-		myPutStr("===","Dog dog2;" ,PINK136);
+		// myPutStr("==="," Dog dog2;" ,PINK136);
 		Dog dog2;
-		myPutStr("===","dog.getType() " ,PINK136);
+		myPutStr("==="," dog copy test" ,PINK136);
+		myPutStr("==="," dog.getType() " ,PINK136);
 		myPutStr("", dog.getType() ,PINK198);
-		myPutStr("===","dog2.getType() " ,PINK136);
+		myPutStr("==="," dog2.getType() " ,PINK136);
 		myPutStr("", dog2.getType() ,PINK198);
-		myPutStr("===","dog2 = dog" ,PINK136);
+		myPutStr("==="," dog2 = dog" ,PINK136);
 		dog2 = dog;
-		myPutStr("===","dog.setType(\"CureBlack\");" ,PINK136);
+		myPutStr("==="," dog.setType(\"CureBlack\");" ,PINK136);
 		dog.setType("CureBlack");
-		myPutStr("===","dog.getType()" ,PINK136);
+		myPutStr("==="," dog.getType()" ,PINK136);
 		myPutStr("", dog.getType() ,PINK198);
-		myPutStr("===","dog2.getType()" ,PINK136);
+		myPutStr("==="," dog2.getType()" ,PINK136);
 		myPutStr("", dog2.getType() ,PINK198);
 		
-		myPutStr("===","cat copy test" ,PINK136);
-		myPutStr("===","Cat cat" ,PINK136);
+		// myPutStr("==="," Cat cat" ,PINK136);
 		Cat cat;
-		myPutStr("===","Cat cat2" ,PINK136);
+		// myPutStr("==="," Cat cat2" ,PINK136);
 		Cat cat2;
-		myPutStr("===","cat.getType()" ,PINK136);
+		myPutStr("==="," cat copy test" ,PINK136);
+		myPutStr("==="," cat.getType()" ,PINK136);
 		myPutStr("", cat.getType() ,PINK198);
-		myPutStr("===","cat2.getType()" ,PINK136);
+		myPutStr("==="," cat2.getType()" ,PINK136);
 		myPutStr("", cat2.getType() ,PINK198);
-		myPutStr("===","cat2 = cat" ,PINK136);
+		myPutStr("==="," cat2 = cat" ,PINK190);
 		cat2 = cat;
-		myPutStr("===","cat.setType(\"CureWhite\");" ,PINK136);
+		myPutStr("==="," cat.setType(\"CureWhite\");" ,PINK136);
 		cat.setType("CureWhite");
-		myPutStr("===","cat.getType()" ,PINK136);
+		myPutStr("==="," cat.getType()" ,PINK190);
 		myPutStr("", cat.getType() ,PINK198);
-		myPutStr("===","cat2.getType()" ,PINK136);
+		myPutStr("==="," cat2.getType()" ,PINK190);
 		myPutStr("", cat2.getType() ,PINK198);
+
+		myPutStr("", "-------------------" ,PINK198);
+		myPutStr("==="," Dog basic;" ,PINK136);
+		Dog basic;
+		{
+			myPutStr("==="," Dog tmp = basic;" ,PINK136);
+			Dog tmp = basic;
+			myPutStr("=== ", "end scope1", PINK190);
+		}
+
 
 // #define TEST_AB
 #ifdef TEST_AB
 		myPutStr("=========", "===========", PINK201);
-		myPutStr("MY_TEST1 ", "Abstract", PINK201);
+		myPutStr("MY_TEST_EX02 ", "Abstract", PINK201);
 		myPutStr("=========", "===========", PINK201);
 		myPutStr("===","const Animal* AA = new Animal();" ,PINK136);
 		Animal AA;

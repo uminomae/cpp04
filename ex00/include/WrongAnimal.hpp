@@ -18,7 +18,8 @@ public:
 	// virtual void makeSound()const;
 	
 	std::string myGetClassName();
-	virtual std::string getType()const;
+	std::string getType()const;
+	// virtual std::string getType()const;
 };
 
 #endif

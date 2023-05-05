@@ -5,7 +5,7 @@
 #include "Brain.hpp"
 
 class Dog: public Animal{
-protected:
+private:
 	std::string type;
 	Brain* brain;
 public:
@@ -15,9 +15,6 @@ public:
 	~Dog();
 	
 	void makeSound()const;
-	std::string getType()const;
-	void setType(std::string s);
-	std::string myGetClassName();
 };
 
 #endif

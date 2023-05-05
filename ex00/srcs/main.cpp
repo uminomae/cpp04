@@ -2,10 +2,11 @@
 #include "Cat.hpp"
 #include "WrongCat.hpp"
 
+// #define TEST_SUB
 #define TEST1
 
 int main(){
-
+#ifdef TEST_SUB
 	{
 		const Animal* meta = new Animal();
 		const Animal* j = new Dog();
@@ -17,10 +18,17 @@ int main(){
 		meta->makeSound();
 
 		const WrongAnimal* WrongMeta = new WrongAnimal();
-		const WrongCat* k = new WrongCat();
-		k->makeSound();
+		const WrongAnimal* WrongAnimalWrongCat =  new WrongCat();
+		const WrongCat* WrongCatWrongCat = new WrongCat();
+		WrongAnimalWrongCat->makeSound();
+		WrongCatWrongCat->makeSound();
 		WrongMeta->makeSound();
+
+		delete meta;
+		delete j;
+		delete i;
 	}
+#endif
 #ifdef TEST1
 	test1();
 #endif
@@ -39,16 +47,18 @@ void test1(){
 		myPutStr("MY_TEST1 case : subject ", "", PINK201);
 		myPutStr("=========", "===========", PINK201);
 
-		myPutStr("=== ", "const Animal* meta = new Animal();", PINK136);
+		myPutStr("=== ", "const Animal* meta = new Animal(); <-- instantiation", PINK190);
 		const Animal* meta = new Animal();
 		myPutStr("=== ", "const Animal* j = new Dog();", PINK136);
 		const Animal* j = new Dog();
 		myPutStr("=== ", "const Animal* i = new Cat();", PINK136);
 		const Animal* i = new Cat();
+
 		myPutStr("=== ", "std::cout << j->getType() << " " << std::endl;", PINK136);
 		std::cout << j->getType() << " " << std::endl;
 		myPutStr("=== ", "std::cout << i->getType() << " " << std::endl;", PINK136);
 		std::cout << i->getType() << " " << std::endl;
+
 		myPutStr("=== ", "i->makeSound();", PINK136);
 		i->makeSound(); //will output the cat sound!
 		myPutStr("=== ", "j->makeSound();", PINK136);
@@ -56,14 +66,38 @@ void test1(){
 		myPutStr("=== ", "meta->makeSound();", PINK136);
 		meta->makeSound();
 
+		myPutStr("", "", PINK136);
+		myPutStr("=========", "===========", PINK201);
+		myPutStr("MY_TEST1 case : Wrong ", "", PINK201);
+		myPutStr("=========", "===========", PINK201);
 		myPutStr("=== ", "const WrongAnimal* WrongMeta = new WrongAnimal();", PINK136);
 		const WrongAnimal* WrongMeta = new WrongAnimal();
-		myPutStr("=== ", "const WrongCat* k = new WrongCat();", PINK136);
-		const WrongCat* k = new WrongCat();
-		myPutStr("=== ", "k->makeSound();", PINK136);
-		k->makeSound();
+		myPutStr("=== ", "const WrongAnimal* WrongAnimalWrongCat =  new WrongCat();", PINK136);
+		const WrongAnimal* WrongAnimalWrongCat =  new WrongCat();
+		myPutStr("=== ", "const WrongCat* WrongCatWrongCat = new WrongCat();", PINK136);
+		const WrongCat* WrongCatWrongCat = new WrongCat();
+
+		myPutStr("=== ", "WrongAnimalWrongCat->makeSound(); <-- Case WrongAnimal", PINK190);
+		WrongAnimalWrongCat->makeSound();
+		myPutStr("=== ", "WrongCatWrongCat->makeSound(); <-- Case WrongCat", PINK190);
+		WrongCatWrongCat->makeSound();
 		myPutStr("=== ", "WrongMeta->makeSound();", PINK136);
 		WrongMeta->makeSound();
+
+		myPutStr("=== ", "delete meta", PINK136);
+		delete meta;
+		myPutStr("=== ", "delete j", PINK136);
+		delete j;
+		myPutStr("=== ", "delete i; ※↓Cat called", PINK190);
+		delete i;
+		myPutStr("=== ", "delete WrongMeta", PINK136);
+		delete WrongMeta;
+		myPutStr("=== ", "delete WrongAnimalWrongCat; ※↓Cat not called", PINK190);
+		// myPutStr("=== ", "", PINK190);
+		delete WrongAnimalWrongCat;
+		myPutStr("=== ", "delete WrongCatWrongCat", PINK136);
+		delete WrongCatWrongCat;
+		myPutStr("=== ", "end scope", PINK136);
 	}
 }
 

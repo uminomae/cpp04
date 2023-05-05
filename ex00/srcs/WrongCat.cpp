@@ -28,9 +28,9 @@ std::string WrongCat::myGetClassName(){
 }
 
 
-// void WrongCat::makeSound()const{
-// 	myPutStr("WrongCat::", "doesn't bark", PINK198);
-// }
+void WrongCat::makeSound()const{
+	myPutStr("WrongCat::", "doesn't bark", PINK198);
+}
 
 std::string WrongCat::getType()const{
 	return type;

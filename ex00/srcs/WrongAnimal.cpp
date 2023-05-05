@@ -23,7 +23,7 @@ WrongAnimal::~WrongAnimal(){
 
 std::string WrongAnimal::myGetClassName(){
 	std::string ret = typeid(*this).name();
-	ret = ret.substr(1, ret.size()-1);
+	ret = ret.substr(2, ret.size()-2);
 	return ret;
 }
 

@@ -24,12 +24,12 @@ Brain::~Brain(){
 	myPutStr(myGetClassName(), " : Destructor called", PINK170);
 }
 
+
 std::string Brain::myGetClassName(){
 	std::string ret = typeid(*this).name();
 	ret = ret.substr(1, ret.size()-1);
 	return ret;
 }
-
 
 std::string Brain::getIdeas(int i)const{
 	return ideas[i];

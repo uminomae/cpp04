@@ -25,21 +25,7 @@ Cat::~Cat(){
 	myPutStr(myGetClassName(), " : Destructor called", PINK201);
 }
 
-std::string Cat::myGetClassName(){
-	std::string ret = typeid(*this).name();
-	ret = ret.substr(1, ret.size()-1);
-	return ret;
-}
-
 
 void Cat::makeSound()const{
 	myPutStr("Cat::", "doesn't bark", PINK198);
-}
-
-std::string Cat::getType()const{
-	return type;
-}
-
-void Cat::setType(std::string s){
-	type = s;
 }
