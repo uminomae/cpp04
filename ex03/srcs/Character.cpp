@@ -2,6 +2,11 @@
 
 Character::Character(std::string const & Name){
 	this->Name = Name;
+	int i = 0;
+	while (i < 4){
+		slot[i] = NULL;
+		i++;
+	}
 }
 
 Character::Character(){
@@ -12,12 +17,20 @@ Character::Character(const Character& obj){
 }
 
 Character& Character::operator =(const Character& rhs){
-	if (this != &rhs)
+	if (this != &rhs){
 		Name = rhs.Name;
+		for (int i=0; i<4; ++i){
+			slot[i] = rhs.slot[i];
+		}
+	}
 	return *this;
 }
 
 Character::~Character(){
+	int i;
+	for (i=0; i<4; ++i){
+		delete slot[i];
+	}
 }
 
 
@@ -37,8 +50,8 @@ void Character::equip(AMateria* m){
 }
 
 void Character::unequip(int idx){
-	if (!slot[idx])
-		return;
+	// if (!slot[idx])
+	// 	return;
 	slot[idx] = 0;
 }
 

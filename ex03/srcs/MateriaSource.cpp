@@ -16,11 +16,8 @@ MateriaSource::MateriaSource(const MateriaSource& obj){
 
 MateriaSource& MateriaSource::operator =(const MateriaSource& rhs){
 	if (this != &rhs){
-		int i;
-		for (i=0; i<4; ++i){
-			if (!MatArray[i])
-				break;
-			delete MatArray[i];
+		for (int i=0; i<4; ++i){
+			MatArray[i] = rhs.MatArray[i];
 		}
 	}
 	return *this;

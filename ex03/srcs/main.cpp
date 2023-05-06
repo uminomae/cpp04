@@ -4,6 +4,7 @@
 #include "Ice.hpp"
 #include "Character.hpp"
 
+// #define TEST_EX04
 int main(){
 	{
 		IMateriaSource* src = new MateriaSource();
@@ -22,6 +23,45 @@ int main(){
 		delete me;
 		delete src;
 	}
+#ifdef TEST_EX04
+	{
+		myPutStr("=========", "===========", PINK201);
+		myPutStr("MY_TEST_EX02 ", "Brain ", PINK201);
+		myPutStr("=========", "===========", PINK201);
+
+		myPutStr("=== ", "IMateriaSource* src = new MateriaSource();", PINK190);
+		IMateriaSource* src = new MateriaSource();
+		myPutStr("=== ", "src->learnMateria(new Ice());", PINK190);
+		src->learnMateria(new Ice());
+		myPutStr("=== ", "src->learnMateria(new Cure());", PINK190);
+		src->learnMateria(new Cure());
+
+		myPutStr("=== ", "ICharacter* me = new Character(\"me\");", PINK190);
+		ICharacter* me = new Character("me");
+		myPutStr("=== ", "AMateria* tmp;", PINK190);
+		AMateria* tmp;
+
+		myPutStr("=== ", "tmp = src->createMateria(\"ice\");", PINK190);
+		tmp = src->createMateria("ice");
+		myPutStr("=== ", "me->equip(tmp);", PINK190);
+		me->equip(tmp);
+		myPutStr("=== ", "tmp = src->createMateria(\"cure\");", PINK190);
+		tmp = src->createMateria("cure");
+		myPutStr("=== ", "me->equip(tmp);", PINK190);
+		me->equip(tmp);
+
+		myPutStr("=== ", "ICharacter* bob = new Character(\"bob\");", PINK190);
+		ICharacter* bob = new Character("bob");
+		myPutStr("=== ", "me->use(0, *bob);", PINK190);
+		me->use(0, *bob);
+		myPutStr("=== ", "me->use(0, *bob);", PINK190);
+		me->use(1, *bob);
+		myPutStr("=== ", "delete", PINK190);
+		delete bob;
+		delete me;
+		delete src;
+	}
+#endif
 	return 0;
 }
 
@@ -29,7 +69,7 @@ void myPutStr(std::string s1, std::string s2, std::string color){
 	std::cout << color << s1 << s2 << RESET_COLOR << std::endl;
 }
 
-
+// case subject
 // $> clang++ -W -Wall -Werror *.cpp
 // $> ./a.out | cat -e
 // * shoots an ice bolt at bob *$

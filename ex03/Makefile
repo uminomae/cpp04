@@ -68,9 +68,13 @@ d: CXXFLAGS +=  -g -fsanitize=address -fsanitize=undefined
 d: re
 
 s:
-	make
+	make d
 	./a.out | cat -e
- 
+
+a:
+	make 
+	./a.out
+
 #=============================
 #color
 #=============================
