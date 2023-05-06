@@ -27,10 +27,8 @@ Character& Character::operator =(const Character& rhs){
 }
 
 Character::~Character(){
-	int i;
-	for (i=0; i<4; ++i){
+	for (int i=0; i<4; ++i)
 		delete slot[i];
-	}
 }
 
 
@@ -50,9 +48,8 @@ void Character::equip(AMateria* m){
 }
 
 void Character::unequip(int idx){
-	// if (!slot[idx])
-	// 	return;
-	slot[idx] = 0;
+	if (0 <= idx && idx <= 3)
+		slot[idx] = 0;
 }
 
 void Character::use(int idx, ICharacter& target){
